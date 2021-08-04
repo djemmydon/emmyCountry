@@ -5,11 +5,6 @@ function Country() {
     const [countries, setCountries] = useState([])
     const [input, setInput] = useState('')
     const [output, setOutput] = useState([])
-    const [modal, setModal] = useState(false)
-
-    const getModal = () => {
-        setModal(!modal)
-    }
 
 
     const fetchCountry = async () => {
@@ -32,7 +27,7 @@ function Country() {
 
         
          
-    }, [input, output])
+    }, [input, ])
 
     return (
         <div className="count">
@@ -48,18 +43,6 @@ function Country() {
                     return <article key={numericCode}>
                         <div>
 
-                            <div className="particle  " >
-                                <img src={flag} alt="" />
-                                <h3>{name}</h3>
-                                <h4>Population: <span>{population}</span> </h4>
-                                <h4>Capital: <span>{capital}</span> </h4>
-                                <h4>Region: <span>{region} </span> </h4>
-                                <h4>Capital: <span>{capital} </span></h4>
-                                <button onClick={getModal}>Check</button>
-                            </div>
-                        </div>
-                                {modal &&(
-                                        <div className="pop-up  onClick={getModal}">
                             <div className="particle">
                                 <img src={flag} alt="" />
                                 <h3>{name}</h3>
@@ -69,8 +52,6 @@ function Country() {
                                 <h4>Capital: <span>{capital} </span></h4>
                             </div>
                         </div>
-                                )}
-                    
                         
                     </article>
 
