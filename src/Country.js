@@ -27,7 +27,7 @@ function Country() {
 
         
          
-    }, [input, ])
+    }, [input, output])
 
     return (
         <div className="count">
