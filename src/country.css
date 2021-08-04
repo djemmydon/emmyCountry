@@ -6,6 +6,25 @@ body {
     padding: 20px;
     font-family: 'Oswald', sans-serif;
 }
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+form input {
+width: 20rem;
+height: 2rem;
+    outline: none;
+    border: 2px red solid;
+    background: none;
+    color: white;
+}
+input .placeholder {
+    color: white;
+}
 .grid{
     display: grid;
     grid-template-columns: 1fr;
@@ -50,6 +69,11 @@ img {
     height: 250px;
     object-fit: cover;
 border-radius:  10px 10px 0 0;
+}
+.vid {
+    display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ grid-gap: 10rem;
 }
 
 @media screen and (min-width: 640px) {
