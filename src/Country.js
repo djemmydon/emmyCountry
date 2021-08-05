@@ -4,7 +4,7 @@ const url = 'https://restcountries.eu/rest/v2/all'
 function Country() {
     const [countries, setCountries] = useState([])
     const [input, setInput] = useState('')
-    const [output, setOutput] = useState([])
+   
 
 
     const fetchCountry = async () => {
@@ -20,17 +20,7 @@ function Country() {
  
 
 
-    function Filtereing() { countries.filter(val => {
-        if (val.name.toLowerCase().includes(input.toLowerCase())) {
-            setOutput(output => [...output, val])
-        
-        }
-    })}
-    useEffect(() => {
-         
-            Filtereing()
-
-    }, [input, output])
+ 
 
     return (
         <div className="count">
@@ -41,7 +31,14 @@ function Country() {
            
             <div className='grid'>
 
-                {output.map((country,index) => {
+                {countries.filter((country) => {
+                    if(input === '') {
+                        return country
+                    }
+                    else if (country.name.toLowerCase().includes(input.toLowerCase())) {
+                        return country
+                    }
+                }).map((country,index) => {
                     const {name, flag, population, region, capital } = country
                     return <article key={index}>
                         <div>
