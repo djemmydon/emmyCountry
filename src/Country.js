@@ -38,6 +38,8 @@ function Country() {
                     else if (country.name.toLowerCase().includes(input.toLowerCase())) {
                         return country
                     }
+
+                    else return false
                 }).map((country,index) => {
                     const {name, flag, population, region, capital } = country
                     return <article key={index}>
