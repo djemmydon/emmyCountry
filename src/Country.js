@@ -8,8 +8,8 @@ function Country() {
 
 
     const fetchCountry = async () => {
-        const repsonse = await fetch(url)
-        const countries = await repsonse.json()
+        const repsponse = await fetch(url)
+        const countries = await repsponse.json()
         setCountries(countries)
     }
     useEffect(() => {
@@ -17,16 +17,19 @@ function Country() {
            
     }, [])
  
-    useEffect(() => {
-         setOutput([])
-        countries.filter(val=>{
-            if(val.name.toLowerCase().includes(input.toLowerCase())){
-                setOutput(output=>[...output, val])
-            }
-        })
+ 
 
+
+    function Filtereing() { countries.filter(val => {
+        if (val.name.toLowerCase().includes(input.toLowerCase())) {
+            setOutput(output => [...output, val])
         
+        }
+    })}
+    useEffect(() => {
          
+            Filtereing()
+
     }, [input, output])
 
     return (
@@ -38,9 +41,9 @@ function Country() {
            
             <div className='grid'>
 
-                {output.map((country) => {
-                    const { numericCode, name, flag, population, region, capital } = country
-                    return <article key={numericCode}>
+                {output.map((country,index) => {
+                    const {name, flag, population, region, capital } = country
+                    return <article key={index}>
                         <div>
 
                             <div className="particle">
